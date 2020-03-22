@@ -40,8 +40,7 @@ public class Board extends BaseEntity {
 
     @Column(nullable = false, length = 100)
     private String title;
-
-    @Lob
+    
     @Column(nullable = false)
     private String description;
 
