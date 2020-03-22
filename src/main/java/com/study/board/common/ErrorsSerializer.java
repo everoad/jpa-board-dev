@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * Controller 단에서 파라미터 유효성 검사 결과로 발생한 errors 객체를
- * JSON 으로 Serializer 하기 위한 Component.
+ * JSON 으로 Serialize 하기 위한 Component.
  */
 @JsonComponent
 public class ErrorsSerializer extends JsonSerializer<Errors> {

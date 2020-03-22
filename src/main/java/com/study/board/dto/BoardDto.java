@@ -51,21 +51,21 @@ public class BoardDto {
         private Long id;
         private String title;
         private int viewCount;
-        private MemberDto.Info author;
+        private MemberDto.Info createdBy;
         private LocalDateTime createdDate;
 
         @Builder
         @QueryProjection
-        public List(Long id, String title, int viewCount, Member author, LocalDateTime createdDate) {
+        public List(Long id, String title, int viewCount, Member createdBy, LocalDateTime createdDate) {
             Assert.isTrue(id > 0L, "Id is not zero");
             Assert.hasText(title, "Title is not empty");
-            Assert.notNull(author, "Author is not null");
+            Assert.notNull(createdBy, "Author is not null");
             Assert.notNull(createdDate, "CreatedDate is not null");
 
             this.id = id;
             this.title = title;
             this.viewCount = viewCount;
-            this.author = MemberDto.Info.create(author);
+            this.createdBy = MemberDto.Info.create(createdBy);
             this.createdDate = createdDate;
         }
 
@@ -74,7 +74,7 @@ public class BoardDto {
                     .id(board.getId())
                     .title(board.getTitle())
                     .viewCount(board.getViewCount())
-                    .author(board.getCreatedBy())
+                    .createdBy(board.getCreatedBy())
                     .createdDate(board.getCreatedDate())
                     .build();
         }
@@ -88,17 +88,17 @@ public class BoardDto {
         private String title;
         private String description;
         private int viewCount;
-        private MemberDto.Info author;
+        private MemberDto.Info createdBy;
         private LocalDateTime createdDate;
         private LocalDateTime lastModifiedDate;
 
 
         @Builder
-        public Info(Long id, String title, String description, int viewCount, MemberDto.Info author, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+        public Info(Long id, String title, String description, int viewCount, MemberDto.Info createdBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
             Assert.isTrue(id > 0L, "Id is not zero");
             Assert.hasText(title, "Title is not empty");
             Assert.hasText(description, "Description is not empty");
-            Assert.notNull(author, "Author is not null");
+            Assert.notNull(createdBy, "CreatedBy is not null");
             Assert.notNull(createdDate, "CreatedDate is not null");
             Assert.notNull(lastModifiedDate, "LastModifiedDate is not null");
 
@@ -106,7 +106,7 @@ public class BoardDto {
             this.title = title;
             this.description = description;
             this.viewCount = viewCount;
-            this.author = author;
+            this.createdBy = createdBy;
             this.createdDate = createdDate;
             this.lastModifiedDate = lastModifiedDate;
         }
@@ -117,7 +117,7 @@ public class BoardDto {
                     .title(board.getTitle())
                     .description(board.getDescription())
                     .viewCount(board.getViewCount())
-                    .author(MemberDto.Info.create(board.getCreatedBy()))
+                    .createdBy(MemberDto.Info.create(board.getCreatedBy()))
                     .createdDate(board.getCreatedDate())
                     .lastModifiedDate(board.getLastModifiedDate())
                     .build();

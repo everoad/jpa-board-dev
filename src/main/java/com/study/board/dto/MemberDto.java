@@ -6,7 +6,6 @@ import com.study.board.domain.MemberRole;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.Set;

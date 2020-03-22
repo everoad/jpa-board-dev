@@ -1,6 +1,5 @@
 package com.study.board.common;
 
-import com.study.board.common.AppProperties;
 import com.study.board.domain.MemberRole;
 import com.study.board.dto.MemberDto;
 import com.study.board.service.MemberService;
@@ -24,8 +23,10 @@ public class TestConfig {
             @Autowired
             AppProperties appProperties;
 
+
             @Override
             public void run(ApplicationArguments args) throws Exception {
+
                 MemberDto.Save memberDto = MemberDto.Save.builder()
                         .username(appProperties.getTestUserName())
                         .password(appProperties.getTestUserPassword())
