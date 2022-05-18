@@ -36,6 +36,7 @@ public class BoardController {
         if (errors.hasErrors()) {
             return ResponseEntity.badRequest().body(errors);
         }
+        System.out.println("boardDto = " + boardDto);
         Long savedId = boardService.saveBoard(boardDto);
         URI created = linkTo(BoardController.class).slash(savedId).toUri();
         return ResponseEntity.created(created).build();
